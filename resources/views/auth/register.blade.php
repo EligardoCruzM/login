@@ -26,6 +26,20 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="rfc" class="col-md-4 col-form-label text-md-end">{{ __('RFC') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="rfc" type="text" class="form-control @error('rfc') is-invalid @enderror" name="rfc" value="{{ old('rfc') }}" required autocomplete="rfc">
+
+                                @error('rfc')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -38,6 +52,28 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Tipo de Usuario') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="type" class="form-select" aria-label="Default select example" name="type" required>
+                                    <option value="">Selecciona el tipo de usuario</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Jefe Académico</option>
+                                    <option value="3">Auxiliar</option>
+                                    <option value="4">Docente</option>
+                                    <option value="5">Alumno</option>
+                                </select>
+
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
